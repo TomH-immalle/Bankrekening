@@ -8,8 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="252" Margin="10,57,0,0" VerticalAlignment="Top" Width="497" Background="#FFC5C5C5"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="26" Margin="17,16,0,0" VerticalAlignment="Top" Width="63" Click="button_Click"/>
-        <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Height="26" Margin="97,16,0,0" VerticalAlignment="Top" Width="63"/>
+        <Button x:Name="Knop" Content="Draw" HorizontalAlignment="Left" Height="26" Margin="17,16,0,0" VerticalAlignment="Top" Width="63" Click="knop_Click"/>
 
     </Grid>
 </Window>

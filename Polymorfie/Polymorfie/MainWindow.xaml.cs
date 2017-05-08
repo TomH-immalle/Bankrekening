@@ -26,13 +26,19 @@ namespace Polymorfie
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void knop_Click(object sender, RoutedEventArgs e)
         {
-            ellip.Height = 100;
-            ellip.Width = 100;
-            ellip.Stroke = new SolidColorBrush(Colors.Black);
-            ellip.Margin = new Thickness(100, 100, 0, 0);
-            canvas.Children.Add(ellip);
+            Square vierkant = new Square(180, 180);
+            Circle cirkel = new Circle(100, 100);
+            List<Shape> group = new List<Shape>();
+
+            group.Add(cirkel);
+            group.Add(vierkant);
+
+            foreach (Shape shape in group)
+            {
+                shape.DisplayOn(canvas);
+            }
         }
     }
 }

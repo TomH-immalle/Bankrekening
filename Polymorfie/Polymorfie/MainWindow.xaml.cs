@@ -20,9 +20,19 @@ namespace Polymorfie
     /// </summary>
     public partial class MainWindow : Window
     {
+        Ellipse ellip = new Ellipse();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            ellip.Height = 100;
+            ellip.Width = 100;
+            ellip.Stroke = new SolidColorBrush(Colors.Black);
+            ellip.Margin = new Thickness(100, 100, 0, 0);
+            canvas.Children.Add(ellip);
         }
     }
 }

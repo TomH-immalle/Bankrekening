@@ -10,6 +10,11 @@ namespace Polymorfie
 {
     public abstract class Shape
     {
+        public Shape(int initX, int initY)
+        {
+
+        }
+
         protected int x;
         protected int y;
         protected int size = 75;

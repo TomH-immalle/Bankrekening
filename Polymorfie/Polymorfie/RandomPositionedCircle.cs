@@ -10,31 +10,26 @@ using System.Windows.Shapes;
 
 namespace Polymorfie
 {
-    class Circle : Shape
+    class RandomPositionedCircle : Circle
     {
-         protected Ellipse ellipse;
+        Random rndGen = new Random();
 
-        public Circle(int initX, int initY) : base(initX, initY)
+        public RandomPositionedCircle() : base(0, 0)
         {
-            x = initX;
-            y = initY;
-            CreateEllipse();
+
         }
 
         public override void DisplayOn(Canvas drawArea)
         {
-            drawArea.Children.Add(ellipse);
-        }
+            int x = rndGen.Next(300);
+            int y = rndGen.Next(300);
 
-        private void CreateEllipse()
-        {
             ellipse = new Ellipse();
             ellipse.Stroke = brush;
-            ellipse.Height = size;
             ellipse.Width = size;
-            ellipse.Fill = new SolidColorBrush(Colors.Black);
+            ellipse.Height = size;
             ellipse.Margin = new Thickness(x, y, 0, 0);
+            drawArea.Children.Add(ellipse);
         }
     }
-
 }

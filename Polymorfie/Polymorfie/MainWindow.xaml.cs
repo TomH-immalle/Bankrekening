@@ -28,12 +28,18 @@ namespace Polymorfie
 
         private void knop_Click(object sender, RoutedEventArgs e)
         {
-            Square vierkant = new Square(180, 180);
+            Square vierkant = new Square(210, 170);
+            RandomPositionedSquare vierkant2 = new RandomPositionedSquare();
             Circle cirkel = new Circle(100, 100);
+            RandomPositionedCircle cirkel2 = new RandomPositionedCircle();
+            Triangle driehoek = new Triangle(20, 20);
             List<Shape> group = new List<Shape>();
 
-            group.Add(cirkel);
+            /*group.Add(cirkel);
             group.Add(vierkant);
+            group.Add(driehoek);*/
+            group.Add(vierkant2);
+            group.Add(cirkel2);
 
             foreach (Shape shape in group)
             {

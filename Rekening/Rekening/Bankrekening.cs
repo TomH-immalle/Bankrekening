@@ -11,7 +11,12 @@ namespace Rekening
         public string naam { get; set; }
         public int saldo { get; set; }
 
+        public Bankrekening(string naam, int saldo)
+        {
+            this.naam = naam;
+            this.saldo = saldo;
+        }
+
+         
     }
-
-
 }

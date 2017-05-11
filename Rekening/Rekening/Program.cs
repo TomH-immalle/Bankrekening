@@ -25,28 +25,46 @@ namespace Rekening
             return null;
         }
 
+        static public Bankrekening vraagAcc()
+        {
+            Console.WriteLine("Op welke naam staat de rekening?");
+            string houder = Console.ReadLine();
+            var id = account(houder);
+            return id;
+        }
+
         static void Main(string[] args) {
 
             rekeningen.Add(b1);
             rekeningen.Add(b2);
+            
             bool menu = false;
 
             while (!menu)
             {
+                Console.WriteLine("___________________________________");
             Console.WriteLine("1. Geld storten op de bankrekening.");
             Console.WriteLine("2. Geld afhalen van de bankrekening.");
             Console.WriteLine("3. Saldo bekijken.");
             Console.WriteLine("4. Maak een rekening aan.");
-            Console.WriteLine("5. Exit.");
-            int keuze = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("5. Rekening sluiten.");
+            Console.WriteLine("6. Exit.");
+            string strkeuze = Console.ReadLine();
+                if (!strkeuze.All(char.IsDigit) || strkeuze.Length == 0)
+                {
+                    Console.WriteLine("Dit is geen optie.");
+                    continue;
+                }
+
+                
+            int keuze = Convert.ToInt32(strkeuze);
+
                 switch (keuze)
                 {
                     case 1:
-                        
-                        Console.WriteLine("Op welke naam staat de rekening?");
-                        string houder = Console.ReadLine();
-                        var id = account(houder);
-                        if (id == null)
+
+                        var id = vraagAcc();
+                        if ( id == null)
                         {
                             Console.WriteLine("Deze bankrekening bestaat niet.");
                             break;
@@ -55,10 +73,10 @@ namespace Rekening
                         int hoeveel = Convert.ToInt32(Console.ReadLine());
                         id.saldo += hoeveel;                
                         break;
+
                     case 2:
-                        Console.WriteLine("Op welke naam staat de rekening?");
-                        string houder2 = Console.ReadLine();
-                        var id2 = account(houder2);
+
+                        var id2 = vraagAcc();
                         if (id2 == null)
                         {
                             Console.WriteLine("Deze bankrekening bestaat niet.");
@@ -76,10 +94,10 @@ namespace Rekening
                         }
                                     
                         break;
+
                     case 3:
-                        Console.WriteLine("Op welke naam staat de rekening?");
-                        string houder3 = Console.ReadLine();
-                        var id3 = account(houder3);
+
+                        var id3 = vraagAcc();
                         if (id3 == null)
                         {
                             Console.WriteLine("Deze rekening bestaat niet.");
@@ -87,13 +105,34 @@ namespace Rekening
                         }
                         Console.WriteLine("Uw saldo bedraagt " + Convert.ToString(id3.saldo));
                         break;
+
                     case 4:
                         Console.WriteLine("Geef uw naam.");
                         string naam = Console.ReadLine();
                         rekeningen.Add(new Bankrekening(naam , 0));
                         break;
+
                     case 5:
+                        Console.WriteLine("Geef uw naam.");
+                        string eigenaar = Console.ReadLine();
+                        var id4 = account(eigenaar);
+                        if (id4 == null)
+                        {
+                            Console.WriteLine("Deze bankrekening bestaat niet.");
+                            
+                        }
+                        else
+                        {
+                            rekeningen.Remove(id4);
+                            Console.WriteLine("De rekening is gesloten.");
+                        }
+                        break;
+
+                    case 6:
                         Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Dit is geen optie.");
                         break;
                 }
                 

@@ -55,7 +55,6 @@ namespace Rekening
                     Console.WriteLine("Dit is geen optie.");
                     continue;
                 }
-
                 
             int keuze = Convert.ToInt32(strkeuze);
 
